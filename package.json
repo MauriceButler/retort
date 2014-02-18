@@ -1,11 +1,18 @@
 {
   "name": "retort",
   "version": "0.0.0",
-  "description": "",
   "main": "retort.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/KoryNunn/retort.git"
+  },
+  "bugs": {
+    "url": "https://github.com/KoryNunn/retort/issues"
+  },
+  "homepage": "https://github.com/KoryNunn/retort"
 }
