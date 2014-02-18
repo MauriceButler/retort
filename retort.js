@@ -37,7 +37,7 @@ Retorter.prototype.unauthorised = function(request, response, message){
 };
 Retorter.prototype.error = function(request, response, error){
     response.writeHead(500);
-    response.end(data);
+    response.end(error);
 };
 Retorter.prototype.redirect = function(request, response, location){
     response.writeHead(301, {Location: location});
