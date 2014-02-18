@@ -10,10 +10,10 @@ function createRetort(request, response, fn){
 
 function Retorter(retorts){
     this.retorts = {
-        ok: this.ok
-        forbidden: this.forbidden
-        unauthorised: this.unauthorised
-        error: this.error
+        ok: this.ok,
+        forbidden: this.forbidden,
+        unauthorised: this.unauthorised,
+        error: this.error,
         redirect: this.redirect
     };
 
