@@ -1,56 +1,26 @@
-function createRetort(request, response, fn){
-    return function(){
-        var args = [].slice.call(arguments);
+function createRetorter(rawRetorts){
+    var retorter = function(fn){
 
-        args = [request, response].concat(args);
+        return function(request, response){
+            var retorts = {};
 
-        fn.apply(null, args);
-    };
-};
+            for(var key in rawRetorts){
+                retorts[key] = retorter[key].bind(retorter, request, response);
+            }
 
-function Retorter(retorts){
-    this.retorts = {
-        ok: this.ok,
-        forbidden: this.forbidden,
-        unauthorised: this.unauthorised,
-        error: this.error,
-        redirect: this.redirect
-    };
+            retorts.request = request;
+            retorts.response = response;
 
-    if(retorts){
-        for(var key in retorts){
-            this.retorts[key] = retorts[key];
+            fn.apply(this, [retorts].concat(Array.prototype.slice.call(arguments, 2)));
         }
+
+    };
+
+    for(var key in rawRetorts){
+        retorter[key] = rawRetorts[key];
     }
+
+    return retorter;
 }
-Retorter.prototype.ok = function(request, response, data){
-    response.writeHead(200);
-    response.end(data);
-};
-Retorter.prototype.forbidden = function(request, response, message){
-    response.writeHead(403, message);
-    response.end();
-};
-Retorter.prototype.unauthorised = function(request, response, message){
-    response.writeHead(301, message);
-    response.end();
-};
-Retorter.prototype.error = function(request, response, error){
-    response.writeHead(500);
-    response.end(error);
-};
-Retorter.prototype.redirect = function(request, response, location){
-    response.writeHead(301, {Location: location});
-    response.end();
-};
-Retorter.prototype.retort = function(request, response){
-    var retorts = {};
 
-    for(var key in this.retorts){
-        retorts[key] = createRetort(request, response, this.retorts[key]);
-    }
-
-    response.retort = retorts;
-};
-
-module.exports = Retorter;
+module.exports = createRetorter;

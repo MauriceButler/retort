@@ -14,5 +14,6 @@
   "bugs": {
     "url": "https://github.com/KoryNunn/retort/issues"
   },
-  "homepage": "https://github.com/KoryNunn/retort"
+  "homepage": "https://github.com/KoryNunn/retort",
+  "description": "A request/response wrapper for use at the very last part of your routing."
 }
