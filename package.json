@@ -1,6 +1,6 @@
 {
   "name": "retort",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "retort.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
