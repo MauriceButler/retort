@@ -4,7 +4,7 @@ function createRetorter(rawRetorts){
         return function(request, response){
             var retorts = {};
 
-            for(var key in rawRetorts){
+            for(var key in retorter){
                 retorts[key] = retorter[key].bind(retorter, request, response);
             }
 
