@@ -1,6 +1,5 @@
 function createRetorter(rawRetorts){
-    var retorter = function(fn){
-
+    function retorter(fn){
         return function(request, response){
             var retorts = {};
 
@@ -12,9 +11,8 @@ function createRetorter(rawRetorts){
             retorts.response = response;
 
             fn.apply(this, [retorts].concat(Array.prototype.slice.call(arguments, 2)));
-        }
-
-    };
+        };
+    }
 
     for(var key in rawRetorts){
         retorter[key] = rawRetorts[key];

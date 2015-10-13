@@ -1,19 +1,32 @@
 {
   "name": "retort",
   "version": "1.0.1",
+  "description": "A request/response wrapper for use at the very last part of your routing.",
   "main": "retort.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./tests"
   },
-  "author": "",
-  "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git://github.com/KoryNunn/retort.git"
+    "url": "git+https://github.com/KoryNunn/retort.git"
   },
+  "author": "Kory Nunn <knunn187@gmail.com>",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/KoryNunn/retort/issues"
   },
-  "homepage": "https://github.com/KoryNunn/retort",
-  "description": "A request/response wrapper for use at the very last part of your routing."
+  "homepage": "https://github.com/KoryNunn/retort#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "tape": "^4.2.1"
+  },
+  "keywords": [
+    "request",
+    "response",
+    "respond",
+    "JSON",
+    "error",
+    "codes",
+    "routing"
+  ]
 }
